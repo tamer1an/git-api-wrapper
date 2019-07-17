@@ -3,6 +3,12 @@ import * as GitHub from 'github-api';
 import {object, string} from "prop-types";
 
 const local = { log: (msg: any, msg2?: any) => {} };
+const defaultHeaders = {
+  Accept: 'application/json',
+  Connection: 'keep-alive',
+  Host: 'github.com',
+  'Content-Type': 'application/json',
+};
 
 class GitApiWrapper {
   user: object;
@@ -80,14 +86,7 @@ class GitApiWrapper {
       method: 'GET',
       headers: {
         Authorization: user.__authorizationHeader,
-        Accept: 'application/json',
-        'Accept-Encoding': 'gzip, deflate, sdch, br',
-        'Accept-Language': 'en-GB,en-US;q=0.8,en;q=0.6',
-        Connection: 'keep-alive',
-        Host: 'github.com',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36' +
-          '(KHTML, like Gecko) Chrome/54.0.2832.2 Safari/537.36',
-        'Content-Type': 'application/json',
+        ...defaultHeaders,
       },
     }).then(response => response.json()).then(pthen).catch(pcatch);
   }
@@ -215,12 +214,7 @@ class GitApiWrapper {
       method: 'GET',
       headers: {
         Authorization: user.__authorizationHeader,
-        Accept: 'application/json',
-        Connection: 'keep-alive',
-        Host: 'github.com',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36' +
-          '(KHTML, like Gecko) Chrome/54.0.2832.2 Safari/537.36',
-        'Content-Type': 'application/json',
+        ...defaultHeaders,
       },
     }).then(response => response.json()).then(pthen).catch(pcatch);
   }
@@ -253,12 +247,7 @@ class GitApiWrapper {
       body: JSON.stringify(protectionOptions),
       headers: {
         Authorization: user.__authorizationHeader,
-        Accept: 'application/json',
-        Connection: 'keep-alive',
-        Host: 'github.com',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36' +
-          '(KHTML, like Gecko) Chrome/54.0.2832.2 Safari/537.36',
-        'Content-Type': 'application/json',
+        ...defaultHeaders,
       },
     }).then(response => response.json()).then(pthen).catch(pcatch);
   }
@@ -274,14 +263,7 @@ class GitApiWrapper {
       method: 'GET',
       headers: {
         Authorization: user.__authorizationHeader,
-        Accept: 'application/json',
-        'Accept-Encoding': 'gzip, deflate, sdch, br',
-        'Accept-Language': 'en-GB,en-US;q=0.8,en;q=0.6',
-        Connection: 'keep-alive',
-        Host: 'github.com',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36' +
-          '(KHTML, like Gecko) Chrome/54.0.2832.2 Safari/537.36',
-        'Content-Type': 'application/json',
+        ...defaultHeaders,
       },
     }).then(response => response.json()).then(pthen).catch(pcatch);
   }
