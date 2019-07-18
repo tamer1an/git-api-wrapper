@@ -68,8 +68,8 @@ class GitApiWrapper {
   async allStars(username) {
     // @ts-ignore
     const result = await this._gh.getUser(username).listStarredRepos();
-    const homaPagesArr = result.data.map((repo: any) => repo.html_url);
-    return result;
+    const homePagesArr = result.data.map((repo: any) => repo.html_url);
+    return [homePagesArr, result];
   }
 
   // @ts-ignore
